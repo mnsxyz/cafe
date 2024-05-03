@@ -13,10 +13,12 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.createGraph
-import com.example.cafe.ui.base.Base
-import com.example.cafe.ui.home.Home
 import com.example.cafe.ui.navigation.SideNavigationBar
 import com.example.cafe.ui.theme.CafeTheme
+import com.example.cafe.ui.view.history.History
+import com.example.cafe.ui.view.menu.Menu
+import com.example.cafe.ui.view.order.Home
+import com.example.cafe.ui.view.user.User
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -29,9 +31,11 @@ class MainActivity : ComponentActivity() {
                 ) {
                     val navController = rememberNavController()
                     val navGraph = remember(navController) {
-                        navController.createGraph(startDestination = "home") {
-                            composable("home") { Home(navController) }
-                            composable("base") { Base(navController) }
+                        navController.createGraph(startDestination = "order") {
+                            composable("order") { Home() }
+                            composable("history") { History() }
+                            composable("menu") { Menu() }
+                            composable("user") { User() }
                         }
                     }
                     Row {
