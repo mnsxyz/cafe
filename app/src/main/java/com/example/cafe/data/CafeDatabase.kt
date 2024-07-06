@@ -1,24 +1,9 @@
 package com.example.cafe.data
 
 import android.content.Context
-import androidx.room.Database
-import androidx.room.Room
-import androidx.room.RoomDatabase
-import androidx.room.TypeConverters
 
 
-@Database(
-    entities =
-    [
-        UserEntity::class,
-        OrderEntity::class,
-        MenuEntity::class,
-        MenuCategoryEntity::class
-    ],
-    version = 1
-)
-@TypeConverters(DateConverter::class)
-abstract class CafeDatabase : RoomDatabase() {
+abstract class CafeDatabase{
     abstract fun userDao(): UserDao
     abstract fun orderDao(): OrderDao
     abstract fun menuDao(): MenuDAO
@@ -31,11 +16,7 @@ abstract class CafeDatabase : RoomDatabase() {
         fun getInstance(context: Context): CafeDatabase? {
             if (instance == null) {
                 synchronized(CafeDatabase::class) {
-                    instance = Room.databaseBuilder(
-                        context.applicationContext,
-                        CafeDatabase::class.java,
-                        "cafe-db"
-                    ).build()
+                    instance
                 }
             }
             return instance
