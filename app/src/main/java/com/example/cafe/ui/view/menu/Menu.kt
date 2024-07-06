@@ -24,10 +24,8 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
-import com.example.cafe.data.CafeDatabase
-import com.example.cafe.data.MenuEntity
+import com.example.cafe.data.Menu
 import com.example.cafe.ui.component.DropDownMenu
 import com.example.cafe.ui.component.FloatingAddButton
 import com.example.cafe.ui.view.order.Header
@@ -37,8 +35,7 @@ import com.example.cafe.ui.view.order.Header
 fun Menu() {
     val showDialog = remember { mutableStateOf(false) }
     val clickedIndex = remember { mutableIntStateOf(-1) }
-    val menus = listOf<MenuEntity>()
-    val database = CafeDatabase.getInstance(LocalContext.current)
+    val menus = listOf<Menu>()
     Scaffold(
         floatingActionButton = {
             FloatingAddButton(
@@ -71,10 +68,8 @@ fun Menu() {
 fun MenuDialog(
     showDialog: MutableState<Boolean>,
     clickedIndex: MutableState<Int>,
-    menus: List<MenuEntity>
+    menus: List<Menu>
 ) {
-    val db = CafeDatabase.getInstance(LocalContext.current)
-    val menuCategories = db?.menuCategoryDao()?.getAll()
     val options = mutableListOf<String>()
 //    for (menuCategory in menuCategories.toList()) {
 //        options.add(menuCategory.name)

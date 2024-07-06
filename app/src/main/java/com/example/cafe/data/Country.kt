@@ -3,8 +3,7 @@ package com.example.cafe.data
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class User(
-    val id: Int = 0,
+data class Country(
+    val id: Int,
     val name: String,
-    val balance: Int = 0
 )

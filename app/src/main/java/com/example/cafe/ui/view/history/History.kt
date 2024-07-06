@@ -16,14 +16,12 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.cafe.data.CafeDatabase
-import com.example.cafe.data.OrderEntity
+import com.example.cafe.data.Order
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import java.time.format.DateTimeFormatter
 
-var orders by mutableStateOf(listOf<OrderEntity>())
+var orders by mutableStateOf(listOf<Order>())
 
 @Composable
 fun History() {
@@ -41,7 +39,7 @@ fun History() {
 }
 
 @Composable
-fun OrderRows(order: OrderEntity) {
+fun OrderRows(order: Order) {
     Row(
         modifier = Modifier
             .padding(horizontal = 20.dp, vertical = 10.dp)
@@ -73,13 +71,6 @@ fun OrderRows(order: OrderEntity) {
             modifier = Modifier.width(width)
         )
         Text(
-            text = order.time.format(
-                DateTimeFormatter.ofPattern("HH:mm")
-            ),
-            fontSize = fontSize,
-            modifier = Modifier.width(width)
-        )
-        Text(
             text = order.status,
             fontSize = fontSize,
             modifier = Modifier.width(width)
@@ -87,12 +78,7 @@ fun OrderRows(order: OrderEntity) {
     }
 }
 
-fun addOrders(database: CafeDatabase) {
+fun addOrders() {
     CoroutineScope(Dispatchers.IO).launch {
-        val ds = database.orderDao().getAll()
-        ds.forEach {
-            orders += it
-        }
-//        database.orderDao().deleteAll()
     }
 }

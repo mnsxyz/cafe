@@ -12,7 +12,7 @@ import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
-import com.example.cafe.data.UserEntity
+import com.example.cafe.data.User
 import com.example.cafe.ui.component.FloatingAddButton
 import com.example.cafe.ui.view.order.Header
 
@@ -21,7 +21,7 @@ import com.example.cafe.ui.view.order.Header
 fun User() {
     val showDialog = remember { mutableStateOf(false) }
     val clickedIndex = remember { mutableIntStateOf(-1) }
-    val users = listOf<UserEntity>()
+    val users = listOf<User>()
     Scaffold(
         floatingActionButton = {
             FloatingAddButton(
@@ -53,7 +53,7 @@ fun User() {
 fun UserDialog(
     showDialog: MutableState<Boolean>,
     clickedIndex: MutableState<Int>,
-    users: List<UserEntity>
+    users: List<User>
 ) {
     val user = users.get(clickedIndex.value)
     AlertDialog(

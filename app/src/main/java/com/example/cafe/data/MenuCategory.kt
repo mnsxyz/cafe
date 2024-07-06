@@ -1,14 +1,9 @@
 package com.example.cafe.data
 
-import kotlinx.coroutines.flow.Flow
+import kotlinx.serialization.Serializable
 
-data class MenuCategoryEntity(
+@Serializable
+data class MenuCategory(
     val id: Int = 0,
     val name: String
 )
-
-interface MenuCategoryDAO {
-    fun getAll(): Flow<List<MenuCategoryEntity>>
-
-    fun insert(menuCategory: MenuCategoryEntity)
-}

@@ -23,11 +23,10 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.cafe.data.OrderEntity
+import com.example.cafe.data.Order
 import com.example.cafe.ui.component.FloatingAddButton
-import java.time.format.DateTimeFormatter
 
-var orders by mutableStateOf(listOf<OrderEntity>())
+var orders by mutableStateOf(listOf<Order>())
 
 @Composable
 fun Home() {
@@ -70,9 +69,9 @@ fun Home() {
 fun OrderDialog(
     showDialog: MutableState<Boolean>,
     clickedIndex: MutableState<Int>,
-    orders: List<OrderEntity>
+    orders: List<Order>
 ) {
-    val order: OrderEntity;
+    val order: Order;
     if (!orders.isEmpty())
         order = orders.get(clickedIndex.value)
 //    val menu =
@@ -152,7 +151,7 @@ fun Header() {
 
 @Composable
 fun OrderRow(
-    order: OrderEntity,
+    order: Order,
     clickedIndex: MutableState<Int>
 ) {
     Row(
@@ -183,11 +182,6 @@ fun OrderRow(
         )
         Text(
             text = order.amount,
-            fontSize = fontSize,
-            modifier = Modifier.width(width)
-        )
-        Text(
-            text = order.time.format(DateTimeFormatter.ofPattern("HH:mm")),
             fontSize = fontSize,
             modifier = Modifier.width(width)
         )
