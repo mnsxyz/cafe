@@ -16,12 +16,12 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.cafe.data.Order
+import com.example.cafe.data.Orders
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-var orders by mutableStateOf(listOf<Order>())
+var orders by mutableStateOf(listOf<Orders>())
 
 @Composable
 fun History() {
@@ -39,7 +39,7 @@ fun History() {
 }
 
 @Composable
-fun OrderRows(order: Order) {
+fun OrderRows(orders: Orders) {
     Row(
         modifier = Modifier
             .padding(horizontal = 20.dp, vertical = 10.dp)
@@ -49,29 +49,12 @@ fun OrderRows(order: Order) {
         val fontSize = 25.sp
         val width = 100.dp
         Text(
-            text = order.sequence.toString(),
-            fontSize = fontSize,
-            modifier = Modifier
-                .width(width)
-        )
-        Text(
-            text = order.name,
-            fontSize = fontSize,
-            modifier = Modifier
-                .width(width)
-        )
-        Text(
-            text = order.menu,
+            text = orders.amount,
             fontSize = fontSize,
             modifier = Modifier.width(width)
         )
         Text(
-            text = order.amount,
-            fontSize = fontSize,
-            modifier = Modifier.width(width)
-        )
-        Text(
-            text = order.status,
+            text = orders.status,
             fontSize = fontSize,
             modifier = Modifier.width(width)
         )

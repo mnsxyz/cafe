@@ -4,7 +4,7 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class Menu(
-    val id: Int = 0,
+    val id: Int,
     val name: String,
     val price: Int
 )

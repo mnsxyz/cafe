@@ -3,7 +3,7 @@ package com.example.cafe.service
 import android.app.Notification
 import android.service.notification.NotificationListenerService
 import android.service.notification.StatusBarNotification
-import com.example.cafe.data.Order
+import com.example.cafe.data.Orders
 import com.example.cafe.ui.view.order.orders
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
@@ -30,12 +30,11 @@ class MyNotificationListenerService : NotificationListenerService() {
                         "${year}/" + timeString,
                         DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm")
                     )
-                orders += Order(
-                    sequence = orders.size,
+                orders += Orders(
                     amount = amount,
-                    name = name,
-                    menu = "",
-                    status = "결제 완료"
+                    time = time.toString(),
+                    status = "결제 완료",
+                    id = 1
                 )
             }
         }

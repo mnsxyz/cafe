@@ -23,10 +23,10 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.cafe.data.Order
+import com.example.cafe.data.Orders
 import com.example.cafe.ui.component.FloatingAddButton
 
-var orders by mutableStateOf(listOf<Order>())
+var orders by mutableStateOf(listOf<Orders>())
 
 @Composable
 fun Home() {
@@ -50,7 +50,7 @@ fun Home() {
                 item { Header() }
                 items(orders) { order ->
                     OrderRow(
-                        order = order,
+                        orders = order,
                         clickedIndex = clickedIndex
                     )
                 }
@@ -69,9 +69,9 @@ fun Home() {
 fun OrderDialog(
     showDialog: MutableState<Boolean>,
     clickedIndex: MutableState<Int>,
-    orders: List<Order>
+    orders: List<Orders>
 ) {
-    val order: Order;
+    val order: Orders;
     if (!orders.isEmpty())
         order = orders.get(clickedIndex.value)
 //    val menu =
@@ -151,7 +151,7 @@ fun Header() {
 
 @Composable
 fun OrderRow(
-    order: Order,
+    orders: Orders,
     clickedIndex: MutableState<Int>
 ) {
     Row(
@@ -159,34 +159,18 @@ fun OrderRow(
             .padding(horizontal = 20.dp, vertical = 10.dp)
             .fillMaxWidth()
             .clickable {
-                clickedIndex.value = order.sequence
             },
         horizontalArrangement = Arrangement.SpaceBetween
     ) {
         val fontSize = 25.sp
         val width = 70.dp
         Text(
-            text = order.sequence.toString(),
+            text = orders.amount,
             fontSize = fontSize,
             modifier = Modifier.width(width)
         )
         Text(
-            text = order.name,
-            fontSize = fontSize,
-            modifier = Modifier.width(width)
-        )
-        Text(
-            text = order.menu,
-            fontSize = fontSize,
-            modifier = Modifier.width(width)
-        )
-        Text(
-            text = order.amount,
-            fontSize = fontSize,
-            modifier = Modifier.width(width)
-        )
-        Text(
-            text = order.status,
+            text = orders.status,
             fontSize = fontSize,
             modifier = Modifier.width(width)
         )

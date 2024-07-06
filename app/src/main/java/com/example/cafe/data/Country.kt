@@ -6,4 +6,5 @@ import kotlinx.serialization.Serializable
 data class Country(
     val id: Int,
     val name: String,
+    val time: String
 )

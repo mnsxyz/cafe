@@ -3,11 +3,9 @@ package com.example.cafe.data
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class Order(
-    val id: Int = 0,
-    val sequence: Int,
-    val name: String,
+data class Orders(
+    val id: Int,
     val amount: String,
-    val menu: String,
+    val time: String,
     val status: String
 )
