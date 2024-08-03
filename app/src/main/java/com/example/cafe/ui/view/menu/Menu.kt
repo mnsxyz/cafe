@@ -25,7 +25,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import com.example.cafe.data.Menu
+import com.example.cafe.entity.Menu
 import com.example.cafe.ui.component.DropDownMenu
 import com.example.cafe.ui.component.FloatingAddButton
 import com.example.cafe.ui.view.order.Header

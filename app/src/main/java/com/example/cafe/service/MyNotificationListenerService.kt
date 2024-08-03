@@ -3,7 +3,7 @@ package com.example.cafe.service
 import android.app.Notification
 import android.service.notification.NotificationListenerService
 import android.service.notification.StatusBarNotification
-import com.example.cafe.data.Orders
+import com.example.cafe.entity.Orders
 import com.example.cafe.ui.view.order.orders
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter

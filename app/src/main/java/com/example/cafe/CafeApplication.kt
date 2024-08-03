@@ -7,12 +7,16 @@ import android.content.Context
 import android.content.Intent
 import android.provider.Settings
 import com.example.cafe.service.MyNotificationListenerService
+import dagger.hilt.android.HiltAndroidApp
 
+@HiltAndroidApp
 class CafeApplication : Application() {
     override fun onCreate() {
         super.onCreate()
         if (!isNotificationPermissionGranted()) {
-            startActivity(Intent(Settings.ACTION_NOTIFICATION_LISTENER_SETTINGS))
+            val intent = Intent(Settings.ACTION_NOTIFICATION_LISTENER_SETTINGS)
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+            startActivity(intent)
         }
     }
 

@@ -12,7 +12,7 @@ import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
-import com.example.cafe.data.User
+import com.example.cafe.entity.User
 import com.example.cafe.ui.component.FloatingAddButton
 import com.example.cafe.ui.view.order.Header
 

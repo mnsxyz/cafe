@@ -23,7 +23,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.cafe.data.Orders
+import com.example.cafe.entity.Orders
 import com.example.cafe.ui.component.FloatingAddButton
 
 var orders by mutableStateOf(listOf<Orders>())

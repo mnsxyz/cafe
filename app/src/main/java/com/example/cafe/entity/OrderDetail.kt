@@ -1,11 +1,11 @@
-package com.example.cafe.data
+package com.example.cafe.entity
 
 import kotlinx.serialization.Serializable
 
 @Serializable
 data class OrderDetail(
-    val orderId: Int,
-    val menuId: Int,
+    val orderId: Long,
+    val menuId: Long,
     val amount: Int,
     val option: Int
 )
